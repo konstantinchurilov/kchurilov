@@ -5,12 +5,12 @@ package ru.job4j;
 *@author kchurilov
 *@since 31.10.2017
 */
-public class Calculate{
+public class Calculate {
 	/**
 	* Точка входа.
 	*@param args - входные аргументы.
 	*/
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		System.out.println("Hello world");
 	}
 
@@ -19,7 +19,7 @@ public class Calculate{
 * @param name Your name.
 * @return Echo plus your name.
 */
-	public String echo(String name) {
+	public String echo(String name)  {
     		return "Echo, echo, echo : " + name;
 	}
 }
