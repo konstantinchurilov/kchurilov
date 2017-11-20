@@ -12,7 +12,7 @@ public class MatrixIterator implements Iterator {
 
     public MatrixIterator(int[][] value) {
         this.value = value;
-        size = value[0].length + value[1].length;
+        size = countArraySize(value);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class MatrixIterator implements Iterator {
     @Override
     public Object next() {
         int tmp;
-        if (index >= size) {
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
         if (point < value[arrayMarker].length) {
@@ -36,5 +36,13 @@ public class MatrixIterator implements Iterator {
             index++;
         }
         return tmp;
+    }
+
+    private int countArraySize(int[][] value) {
+        int size = 0;
+        for (int i = 0; i < value.length; i++) {
+            size += value[i].length;
+        }
+        return size;
     }
 }
