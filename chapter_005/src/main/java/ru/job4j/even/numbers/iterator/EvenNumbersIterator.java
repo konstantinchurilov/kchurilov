@@ -28,23 +28,29 @@ public class EvenNumbersIterator implements Iterator {
 
     @Override
     public Object next() {
-        int tmp = numbers[index];
-        if (!hasNext()) {
+        if (size == 0 || !hasNext() || index > size) {
             throw new NoSuchElementException();
-        } else {
+        }
+            int tmp = numbers[index];
             while (index < size) {
                 if (isEvenNumber(tmp)) {
-                    index = tmp;
+                    index++;
                     break;
                 } else {
                     tmp = numbers[++index];
                 }
             }
-        }
         return tmp;
     }
 
     private boolean isEvenNumber(int num) {
         return num % 2 == 0;
+    }
+
+    public static class Test {
+        public static void main(String[] args) {
+            int[] numbers = new int[]{};
+            System.out.println(numbers.length);
+        }
     }
 }
