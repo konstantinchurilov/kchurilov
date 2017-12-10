@@ -5,13 +5,14 @@ import org.junit.Test;
 import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
+
 public class EvenNumbersIteratorTest {
     private EvenNumbersIterator createEvenNumbersIterator(int[] numbers) {
         return new EvenNumbersIterator(numbers);
     }
 
     @Test
-    public void checkAllEvenArray(){
+    public void checkAllEvenArray() {
         EvenNumbersIterator evenIter = createEvenNumbersIterator(new int[]{2, 4, 6, 8});
         assertTrue(evenIter.hasNext());
         assertEquals("2", 2, evenIter.next());
@@ -25,7 +26,7 @@ public class EvenNumbersIteratorTest {
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void checkArrayWithOneElement(){
+    public void checkArrayWithOneElement() {
         EvenNumbersIterator evenIter = createEvenNumbersIterator(new int[]{2});
         assertTrue(evenIter.hasNext());
         evenIter.next();
@@ -33,15 +34,15 @@ public class EvenNumbersIteratorTest {
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void checkEmptyArray(){
+    public void checkEmptyArray() {
         EvenNumbersIterator evenIter = createEvenNumbersIterator(new int[]{});
         assertFalse(evenIter.hasNext());
         evenIter.next();
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void checkArrayWithAllNotEvenNumbers(){
-        EvenNumbersIterator evenIter = createEvenNumbersIterator(new int[]{1,3,5,7,9,11});
+    public void checkArrayWithAllNotEvenNumbers() {
+        EvenNumbersIterator evenIter = createEvenNumbersIterator(new int[]{1, 3, 5, 7, 9, 11});
         assertFalse(evenIter.hasNext());
         evenIter.next();
     }

@@ -10,7 +10,7 @@ public class EvenNumbersIterator implements Iterator {
 
     public EvenNumbersIterator(final int[] numbers) {
         this.numbers = numbers;
-        size = numbers.length;
+        this.size = numbers.length;
     }
 
     @Override
@@ -31,26 +31,19 @@ public class EvenNumbersIterator implements Iterator {
         if (size == 0 || !hasNext() || index > size) {
             throw new NoSuchElementException();
         }
-            int tmp = numbers[index];
-            while (index < size) {
-                if (isEvenNumber(tmp)) {
-                    index++;
-                    break;
-                } else {
-                    tmp = numbers[++index];
-                }
+        int tmp = numbers[index];
+        while (index < size) {
+            if (isEvenNumber(tmp)) {
+                index++;
+                break;
+            } else {
+                tmp = numbers[++index];
             }
+        }
         return tmp;
     }
 
     private boolean isEvenNumber(int num) {
         return num % 2 == 0;
-    }
-
-    public static class Test {
-        public static void main(String[] args) {
-            int[] numbers = new int[]{};
-            System.out.println(numbers.length);
-        }
     }
 }
