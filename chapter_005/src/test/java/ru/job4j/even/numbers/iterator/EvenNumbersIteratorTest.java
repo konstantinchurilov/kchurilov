@@ -46,4 +46,13 @@ public class EvenNumbersIteratorTest {
         assertFalse(evenIter.hasNext());
         evenIter.next();
     }
+
+    @Test(expected = NoSuchElementException.class)
+    public void checkArrayWithOneNotEvenNumber(){
+        int[] nums = new int[1];
+        nums[0] = 3;
+        EvenNumbersIterator evenIter = createEvenNumbersIterator(nums);
+        assertFalse(evenIter.hasNext());
+        evenIter.next();
+    }
 }
