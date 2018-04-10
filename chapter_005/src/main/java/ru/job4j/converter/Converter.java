@@ -9,14 +9,20 @@ public class Converter {
             Iterator<Integer> currentIterator = it.next();
             Iterator<Integer> nextIterator = it.next();
 
+//            @Override
+//            public boolean hasNext() {
+//                if (currentIterator.hasNext()) {
+//                    return true;
+//                } else if (nextIterator.hasNext()) {
+//                    return true;
+//                }
+//                return false;
+//            }
+
+
             @Override
             public boolean hasNext() {
-                if (currentIterator.hasNext()) {
-                    return true;
-                } else if (nextIterator.hasNext()) {
-                    return true;
-                }
-                return false;
+                return currentIterator.hasNext()||nextIterator.hasNext();
             }
 
             @Override
